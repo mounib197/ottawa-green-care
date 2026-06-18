@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ottawa Green Care - Lawn Care Matching Service</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bright-green: #22c55e;
+            --dark-charcoal: #1a1a2e;
+            --dark-green-bg: #1a3a1a;
+            --light-green: #e8f5e9;
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-gray: #666666;
+            --green-dark: #16a34a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e5e5;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-button {
+            background: var(--bright-green);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: var(--green-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            margin-top: 70px;
+            height: 100vh;
+            background: linear-gradient(rgba(13, 59, 31, 0.65), rgba(13, 59, 31, 0.65)), 
+                        url('https://images.pexels.com/photos/1453499/pexels-photo-1453499.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 80px;
+            font-weight: 900;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+
+        .hero-description {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            background: var(--bright-green);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-cta:hover {
+            background: var(--green-dark);
+            transform: translateY(-4px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .how-it-works {
+            padding: 120px 40px;
+            background: var(--dark-charcoal);
+            color: white;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 80px;
+            letter-spacing: -1px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 180px;
+            font-weight: 900;
+            color: var(--bright-green);
+            opacity: 0.3;
+            margin-bottom: -60px;
+            line-height: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-card h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            padding: 120px 40px;
+            background: white;
+        }
+
+        .services-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 80px;
+            letter-spacing: -1px;
+            color: var(--text-dark);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 40px 30px;
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* ===== FORM SECTION ===== */
+        .form-section {
+            padding: 120px 40px;
+            background: var(--light-green);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-header h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            color: var(--text-dark);
+        }
+
+        .form-header p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        .form-container {
+            background: white;
+            padding: 70px 60px;
+            border-radius: 12px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 14px 18px;
+            border: 2px solid #e5e5e5;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--bright-green);
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-grid button {
+            grid-column: 1 / -1;
+            background: var(--bright-green);
+            color: white;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-grid button:hover {
+            background: var(--green-dark);
+            transform: translateY(-3px);
+        }
+
+        .form-message {
+            grid-column: 1 / -1;
+            padding: 16px;
+            border-radius: 6px;
+            display: none;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .form-message.success {
+            background: #d1fae5;
+            color: #065f46;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #fee2e2;
+            color: #7f1d1d;
+            display: block;
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        .why-choose {
+            padding: 120px 40px;
+            background: white;
+        }
+
+        .why-choose-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 80px;
+            letter-spacing: -1px;
+            color: var(--text-dark);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            padding: 50px 40px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            background: white;
+            border: 2px solid var(--light-green);
+        }
+
+        .benefit-card:nth-child(odd) {
+            background: var(--light-green);
+            border: none;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .benefit-icon {
+            font-size: 60px;
+            margin-bottom: 25px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .benefit-card p {
+            color: var(--text-gray);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 120px 40px;
+            background: var(--dark-green-bg);
+            color: white;
+        }
+
+        .testimonials-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 80px;
+            letter-spacing: -1px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--bright-green);
+        }
+
+        .quote-mark {
+            font-size: 80px;
+            color: var(--bright-green);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+        }
+
+        .testimonial-text {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--bright-green), var(--green-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.4rem;
+        }
+
+        .author-name {
+            font-weight: 700;
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        .author-location {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+        }
+
+        /* ===== SERVICE AREAS ===== */
+        .service-areas {
+            padding: 120px 40px;
+            background: white;
+        }
+
+        .areas-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .areas-section h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 60px;
+            letter-spacing: -1px;
+            color: var(--text-dark);
+        }
+
+        .areas-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .area-badge {
+            background: var(--bright-green);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .area-badge:hover {
+            background: var(--green-dark);
+            transform: scale(1.05);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--bright-green);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .hero {
+                margin-top: 70px;
+                height: auto;
+                padding: 100px 20px 80px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .section-title,
+            .services-title,
+            .why-choose-title,
+            .testimonials-title {
+                font-size: 2.5rem;
+            }
+
+            .step-number {
+                font-size: 120px;
+                margin-bottom: -40px;
+            }
+
+            .form-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .form-container {
+                padding: 40px 30px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .benefit-card {
+                padding: 35px 25px;
+            }
+
+            .steps-grid,
+            .services-grid,
+            .benefits-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .how-it-works,
+            .services,
+            .form-section,
+            .why-choose,
+            .testimonials,
+            .service-areas {
+                padding: 80px 20px;
+            }
+
+            .areas-grid {
+                gap: 12px;
+            }
+
+            .area-badge {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+            }
+
+            .service-image {
+                height: 200px;
+            }
+
+            .service-content {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 36px;
+                margin-bottom: 15px;
+            }
+
+            .hero-description {
+                font-size: 0.95rem;
+            }
+
+            .hero-cta {
+                padding: 14px 30px;
+                font-size: 0.95rem;
+            }
+
+            .section-title,
+            .services-title,
+            .why-choose-title,
+            .testimonials-title {
+                font-size: 2rem;
+            }
+
+            .step-number {
+                font-size: 80px;
+                margin-bottom: -25px;
+            }
+
+            .form-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .benefit-icon {
+                font-size: 40px;
+            }
+
+            .benefit-card h3,
+            .step-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 16px;
+            }
+
+            .nav-button {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+
+            .service-image {
+                height: 160px;
+            }
+
+            .service-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .service-content {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Ottawa Green Care</div>
+            <button class="nav-button" onclick="document.getElementById('form-section').scrollIntoView({behavior: 'smooth'})">Get Free Quote</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Ottawa's #1 Lawn Care Matching Service</h1>
+            <p class="hero-description">Connect with vetted, trusted local lawn care professionals instantly. Get multiple quotes, compare prices, and have your yard looking perfect.</p>
+            <button class="hero-cta" onclick="document.getElementById('form-section').scrollIntoView({behavior: 'smooth'})">Get Free Quotes</button>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <h3>Fill The Form</h3>
+                    <p>Tell us about your lawn care needs and where you're located in Ottawa. It takes just 2 minutes.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <h3>We Find You A Pro</h3>
+                    <p>We match you with 2-3 vetted local professionals who are perfect for your project.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <h3>Get Your Lawn Done</h3>
+                    <p>Professionals contact you with free quotes. Choose the best fit and book your service.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="services-title">Services We Connect You With</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://images.pexels.com/photos/1453499/pexels-photo-1453499.jpeg" alt="Lawn mowing service" class="service-image">
+                    <div class="service-content">
+                        <h3>Lawn Mowing</h3>
+                        <p>Professional lawn cutting and maintenance to keep your grass healthy, thick, and beautifully manicured throughout the seasons.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.pexels.com/photos/3259617/pexels-photo-3259617.jpeg" alt="Hedge trimming service" class="service-image">
+                    <div class="service-content">
+                        <h3>Hedge Trimming</h3>
+                        <p>Expert hedge and shrub trimming services to shape and maintain your landscaping with precision and care.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.pexels.com/photos/1301856/pexels-photo-1301856.jpeg" alt="Garden cleanup service" class="service-image">
+                    <div class="service-content">
+                        <h3>Garden Cleanup</h3>
+                        <p>Seasonal garden cleanups including debris removal, weeding, and preparation for new growth and planting.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg" alt="Landscaping service" class="service-image">
+                    <div class="service-content">
+                        <h3>Landscaping</h3>
+                        <p>Full landscaping design and installation services to transform your outdoor space into a beautiful garden paradise.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section" id="form-section">
+        <div class="container">
+            <div class="form-header">
+                <h2>Get Free Quotes From Local Pros</h2>
+                <p>Fill out this quick form and local lawn care professionals will contact you with free, no-obligation quotes within hours.</p>
+            </div>
+
+            <div class="form-container">
+                <form id="contactForm" class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="John Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(613) 555-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Home Address *</label>
+                        <input type="text" id="address" name="address" placeholder="123 Main St, Nepean, ON" required>
+                    </div>
+                    <div class="form-group full">
+                        <label for="service">What service do you need? *</label>
+                        <select id="service" name="service" required>
+                            <option value="">-- Select a service --</option>
+                            <option value="lawn-mowing">Lawn Mowing</option>
+                            <option value="hedge-trimming">Hedge Trimming</option>
+                            <option value="garden-cleanup">Garden Cleanup</option>
+                            <option value="landscaping">Landscaping</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group full">
+                        <label for="message">Tell us more (optional)</label>
+                        <textarea id="message" name="message" placeholder="Any additional details about your project..."></textarea>
+                    </div>
+                    <button type="submit">Get Free Quotes</button>
+                    <div class="form-message" id="formMessage"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="why-choose-title">Why Choose Us</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Fast Matching</h3>
+                    <p>Get matched with professionals in just 24 hours. No waiting around - get your lawn done fast.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">✓</div>
+                    <h3>Vetted Pros</h3>
+                    <p>Every lawn care professional is vetted and verified. Hire with confidence knowing they're the best.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Completely Free</h3>
+                    <p>No hidden fees. Getting matched with professionals and receiving quotes is 100% free and easy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="testimonials-title">What Ottawa Homeowners Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">Amazing service! I filled out the form and within a few hours had quotes from three different professionals. Made my decision so easy.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SK</div>
+                        <div>
+                            <div class="author-name">Sarah Kennedy</div>
+                            <div class="author-location">Nepean</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">Can't believe how professional the whole process was. The pros they connected me with were all high quality. Worth every minute!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JM</div>
+                        <div>
+                            <div class="author-name">James Mitchell</div>
+                            <div class="author-location">Barrhaven</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">Finally found a hassle-free way to get lawn work done. Their vetting process gives me peace of mind and the quotes were very competitive.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CR</div>
+                        <div>
+                            <div class="author-name">Christine Roberts</div>
+                            <div class="author-location">Kanata</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas -->
+    <section class="service-areas">
+        <div class="areas-section">
+            <h2>We Serve All Of Ottawa</h2>
+            <div class="areas-grid">
+                <div class="area-badge">Nepean</div>
+                <div class="area-badge">Barrhaven</div>
+                <div class="area-badge">Kanata</div>
+                <div class="area-badge">Orleans</div>
+                <div class="area-badge">Gloucester</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Ottawa Green Care</strong></p>
+        <p>Connecting homeowners with trusted lawn care professionals</p>
+        <p>Email: <a href="mailto:info@ottawagreencaregroup.com">info@ottawagreencaregroup.com</a></p>
+        <p style="margin-top: 20px; opacity: 0.5;">© 2024 Ottawa Green Care. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const service = document.getElementById('service').value.trim();
+
+            if (!name || !email || !phone || !address || !service) {
+                showMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            showMessage('✓ Thank you! Local professionals will contact you within hours with free quotes.', 'success');
+            contactForm.reset();
+
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 8000);
+        });
+
+        function showMessage(text, type) {
+            formMessage.textContent = text;
+            formMessage.className = 'form-message ' + type;
+        }
+    </script>
+</body>
+</html>
