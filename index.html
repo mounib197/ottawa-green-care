@@ -864,7 +864,7 @@
             </div>
 
             <div class="form-container">
-                <form id="contactForm" class="form-grid">
+                <form action="https://formspree.io/f/xlgkyzza" method="POST" id="contactForm" class="form-grid">
                     <div class="form-group">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" placeholder="John Smith" required>
@@ -995,41 +995,7 @@
     </footer>
 
     <script>
-        const contactForm = document.getElementById('contactForm');
-        const formMessage = document.getElementById('formMessage');
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const address = document.getElementById('address').value.trim();
-            const service = document.getElementById('service').value.trim();
-
-            if (!name || !email || !phone || !address || !service) {
-                showMessage('Please fill in all required fields.', 'error');
-                return;
-            }
-
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showMessage('Please enter a valid email address.', 'error');
-                return;
-            }
-
-            showMessage('✓ Thank you! Local professionals will contact you within hours with free quotes.', 'success');
-            contactForm.reset();
-
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 8000);
-        });
-
-        function showMessage(text, type) {
-            formMessage.textContent = text;
-            formMessage.className = 'form-message ' + type;
-        }
+        // Smooth scroll helper used by nav and hero buttons
     </script>
 </body>
 </html>
